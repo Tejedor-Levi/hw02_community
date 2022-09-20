@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Group
 
+
 POST_NUM = 10
 
 
 def index(request):
-    posts = Post.objects.all()[:POST_NUM]
+    posts = Post.objects.order_by('-pub_date')[:POST_NUM]
     context = {
         'posts': posts,
     }
@@ -14,7 +15,7 @@ def index(request):
 
 def group_posts(request, slug):
     group = get_object_or_404(Group, slug=slug)
-    posts = group.posts.all()[:POST_NUM]
+    posts = group.posts.all().order_by('-pub_date')[:POST_NUM]
     context = {
         'group': group,
         'posts': posts,
