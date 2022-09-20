@@ -7,6 +7,8 @@
   <p>
     Описание группы: {{ group.description|linebreaksbr }}
   </p>
+    {% for post in posts %}
     {% include "includes/article.html" %}
+    {% endfor %}
 </div>
 {% endblock %} 
