@@ -1,4 +1,4 @@
-from django.contrib.auth.views import AboutAuthorView, AboutTechView
+#from django.contrib.auth.views import AboutAuthorView, AboutTechView
 from django.urls import path
 from . import views
 
