@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Пост {{ post.text|truncatechars:30 }}{% endblock %}
+{% block content %}
+<div class="row">
+  <aside class="col-12 col-md-3">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        Дата публикации: {{ post.pub_date|date:"d E Y" }} <!-- 31 июля 1854 --> 
+      </li>
+      {% if post.group %} <!-- если у поста есть группа -->   
+      <li class="list-group-item">
+        Группа: <!-- Название группы -->
+        <a href="{% url 'posts:group_list' post.group.slug %}">
+          все записи группы: {{ post.group.title }}
+        </a>
+      </li>
+      {% endif %}
+      <li class="list-group-item">
+        Автор: <!--Лев Толстой-->
+        <a href="{% url 'posts:profile' post.author %}">
+          {{ post.author.get_full_name }}
+        </a>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Всего постов автора:  <span >{{ post.author.posts.count }}</span>
+      </li>
+      <li class="list-group-item">
+        <a href="{{ post.author.posts }}">
+          все посты пользователя
+        </a>
+      </li>
+    </ul>
+  </aside>
+  <article class="col-12 col-md-9">
+    <p>
+      {{ post.text|linebreaks }} 
+    </p>
+  </article>
+</div> 
+{% endblock %}

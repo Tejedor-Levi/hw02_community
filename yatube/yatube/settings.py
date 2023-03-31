@@ -133,6 +133,7 @@ EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 
 LOGIN_URL = 'users:login'
 LOGIN_REDIRECT_URL = 'posts:index'
+
 LOGOUT_REDIRECT_URL = 'posts:index'
 PASSWORD_RESET_FORM_URL = 'users:password_reset'
 PASSWORD_RESET_DONE_URL = 'users:password_reset/done'

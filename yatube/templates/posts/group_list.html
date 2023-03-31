@@ -1,9 +1,9 @@
 {% extends 'base.html' %} 
-{% block title %}{{group.title}}{% endblock %} 
+{% block title %}Записи{% endblock %} 
 {% block content %} 
 
 <div class="container py-5"> 
-  <h1>Лев Толстой – зеркало русской революции.</h1> 
+  <h1>{{ group.title}}</h1> 
   <p> 
     Описание группы: {{ group.description|linebreaksbr }} 
   </p> 
